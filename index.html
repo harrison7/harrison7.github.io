@@ -1,198 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Harrison Casper, Computer Science student at Brigham Young University">
-    <title>Harrison Casper - Portfolio</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        header p {
-            margin: 10px 0 0;
-            font-size: 1.2em;
-        }
-        header img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid white;
-        }
-        nav {
-            background-color: #34495e;
-            display: flex;
-            justify-content: center;
-            padding: 15px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav a {
-            color: white;
-            padding: 14px 25px;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        nav a:hover {
-            background-color: #ecf0f1;
-            color: #2c3e50;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .section {
-            margin-bottom: 60px;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding-top: 80px;
-            margin-top: -80px;
-        }
-        .section h2 {
-            border-bottom: 3px solid #2c3e50;
-            padding-bottom: 10px;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        .portfolio-item {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 40px;
-            align-items: center;
-        }
-        .portfolio-item img {
-            max-width: 40%;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .portfolio-item div {
-            flex: 1;
-            min-width: 300px;
-        }
-        .portfolio-item h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-        .portfolio-item p {
-            margin-bottom: 15px;
-        }
-        .portfolio-item a {
-            color: #2980b9;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .portfolio-item a:hover {
-            text-decoration: underline;
-        }
-        .footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            width: 100%;
-        }
-        @media (max-width: 768px) {
-            .portfolio-item {
-                flex-direction: column;
-            }
-            .portfolio-item img {
-                max-width: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harrison Casper · Software Engineer</title>
+  <meta name="description" content="Harrison Casper is a software engineer and BYU Computer Science graduate building games, web apps and machine learning systems.">
+  <meta property="og:title" content="Harrison Casper · Software Engineer">
+  <meta property="og:description" content="Games, web apps and machine learning. Currently building Elementary, a star-in-a-flask incremental game in TypeScript and PixiJS.">
+  <meta property="og:image" content="https://harrison7.github.io/images/elementary-hero.webp">
+  <meta property="og:url" content="https://harrison7.github.io/">
+  <meta name="theme-color" content="#0b1022">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff5fa2'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-weight='700' font-size='30' text-anchor='middle' fill='%230b1022'%3EHC%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1022;
+      --surface: #121a35;
+      --line: #243056;
+      --text: #e8ecf8;
+      --muted: #9aa5c4;
+      --faint: #6b7699;
+      --pink: #ff5fa2;
+      --peach: #ffc49b;
+      --gold: #ffcc4d;
+      --sky: #6cc6ff;
+      --radius: 16px;
+      --max: 1120px;
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(900px 600px at 85% -10%, #1d2a5a 0%, transparent 60%),
+        radial-gradient(700px 500px at -10% 30%, #1a1f48 0%, transparent 60%),
+        var(--bg);
+      color: var(--text);
+      font: 400 17px/1.65 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11, 16, 34, 0.78);
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+    .nav.scrolled { border-bottom-color: var(--line); }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-weight: 700; text-decoration: none; letter-spacing: -0.01em; }
+    .brand span { color: var(--pink); }
+    .nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; transition: color .15s; }
+    .nav-links a:hover { color: var(--text); }
+
+    /* Hero */
+    .hero { padding: 96px 0 72px; }
+    .hero .wrap { display: grid; grid-template-columns: 1fr auto; gap: 56px; align-items: center; }
+    .eyebrow {
+      font: 500 13px/1 "JetBrains Mono", ui-monospace, monospace;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--pink);
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 0 4px #4ade8022; }
+    h1 { font-size: clamp(40px, 6vw, 68px); line-height: 1.05; letter-spacing: -0.035em; margin: 18px 0 20px; font-weight: 800; }
+    h1 .grad { background: linear-gradient(90deg, var(--pink), var(--peach) 55%, var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lede { font-size: 20px; color: var(--muted); max-width: 620px; margin: 0 0 32px; }
+    .lede strong { color: var(--text); font-weight: 600; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;
+      text-decoration: none; border: 1px solid var(--line); background: var(--surface);
+      transition: transform .15s, border-color .15s, background .15s;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: #3a4a80; }
+    .btn.primary { background: var(--pink); color: #1a0b14; border-color: var(--pink); }
+    .btn.primary:hover { background: #ff7bb4; }
+    .btn svg { width: 18px; height: 18px; }
+    .portrait {
+      width: 260px; height: 260px; border-radius: 50%; object-fit: cover;
+      border: 4px solid var(--surface);
+      box-shadow: 0 0 0 1px var(--line), 0 30px 80px -20px #ff5fa255;
+    }
+    .facts { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 40px; color: var(--muted); font-size: 15px; }
+    .facts b { color: var(--text); font-weight: 600; }
+
+    /* Sections */
+    section { padding: 72px 0; }
+    .section-head { margin-bottom: 36px; }
+    .section-head h2 { font-size: clamp(28px, 4vw, 38px); letter-spacing: -0.025em; margin: 10px 0 8px; line-height: 1.15; }
+    .section-head p { color: var(--muted); margin: 0; max-width: 640px; }
+
+    /* Featured project */
+    .feature {
+      background: linear-gradient(180deg, #141d3d, #0f1630);
+      border: 1px solid var(--line); border-radius: 24px; overflow: hidden;
+    }
+    .feature-shot { position: relative; border-bottom: 1px solid var(--line); }
+    .feature-shot img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .badge {
+      position: absolute; bottom: 16px; left: 16px;
+      font: 500 12px/1 "JetBrains Mono", monospace; letter-spacing: .06em; text-transform: uppercase;
+      padding: 8px 12px; border-radius: 999px; background: rgba(11,16,34,.85); border: 1px solid var(--line); color: var(--gold);
+    }
+    .feature-body { padding: 40px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; }
+    .feature-body h3 { font-size: 34px; letter-spacing: -0.03em; margin: 0 0 6px; }
+    .tagline { color: var(--peach); font-style: italic; margin: 0 0 18px; }
+    .feature-body p { color: var(--muted); margin: 0 0 16px; }
+    .feature-body p strong { color: var(--text); font-weight: 600; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; padding: 0; list-style: none; }
+    .chips li {
+      font: 500 13px/1 "JetBrains Mono", monospace; padding: 7px 11px; border-radius: 8px;
+      background: #1b2550; color: #c9d3f2; border: 1px solid #2a3768;
+    }
+    .highlights { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+    .highlights li { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; }
+    .el {
+      width: 40px; height: 40px; border-radius: 9px; display: grid; place-items: center;
+      font-weight: 700; font-size: 15px; color: #0b1022;
+    }
+    .el.h { background: var(--pink); } .el.he { background: var(--peach); }
+    .el.c { background: #fff1d0; } .el.o { background: var(--sky); }
+    .el.n { background: #a78bfa; }
+    .highlights b { display: block; font-weight: 600; margin-bottom: 2px; }
+    .highlights div span { color: var(--muted); font-size: 15px; }
+    .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 0 40px 40px; }
+    .gallery figure { margin: 0; }
+    .gallery img { border-radius: 12px; border: 1px solid var(--line); aspect-ratio: 16 / 10; object-fit: cover; }
+    .gallery figcaption { font-size: 14px; color: var(--faint); margin-top: 10px; }
+    .feature-foot {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 22px 40px; border-top: 1px solid var(--line); background: #0d1430; font-size: 15px; color: var(--muted);
+    }
+    .feature-foot a { color: var(--sky); text-decoration: none; font-weight: 500; }
+    .feature-foot a:hover { text-decoration: underline; }
+
+    /* Project grid */
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      overflow: hidden; display: flex; flex-direction: column;
+      transition: transform .2s, border-color .2s;
+    }
+    .card:hover { transform: translateY(-3px); border-color: #34437a; }
+    .card-img { aspect-ratio: 16 / 9; overflow: hidden; background: #0d1430; border-bottom: 1px solid var(--line); }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .card-img.contain img { object-fit: contain; background: #fff; }
+    .card-img.code { display: grid; place-items: center; font: 500 64px/1 "JetBrains Mono", monospace; color: var(--peach); background: repeating-conic-gradient(#141d3d 0% 25%, #101731 0% 50%) 50% / 48px 48px; }
+    .card-body { padding: 26px; display: flex; flex-direction: column; flex: 1; }
+    .card .kicker { font: 500 12px/1 "JetBrains Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+    .card h3 { font-size: 22px; letter-spacing: -0.02em; margin: 10px 0 10px; }
+    .card p { color: var(--muted); font-size: 16px; margin: 0 0 16px; }
+    .card .chips { margin: auto 0 0; }
+    .card .chips li { font-size: 12px; padding: 6px 9px; }
+    .card-link { margin-top: 18px; color: var(--sky); text-decoration: none; font-weight: 600; font-size: 15px; }
+    .card-link:hover { text-decoration: underline; }
+
+    /* Experience */
+    .timeline { display: grid; gap: 16px; }
+    .role {
+      display: grid; grid-template-columns: 220px 1fr; gap: 24px;
+      padding: 26px 28px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    }
+    .role .where { color: var(--faint); font-size: 15px; }
+    .role .where b { display: block; color: var(--text); font-size: 17px; font-weight: 600; }
+    .role h3 { margin: 0 0 8px; font-size: 18px; }
+    .role ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    .role li { margin-bottom: 6px; }
+
+    /* Skills + about */
+    .split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: start; }
+    .about p { color: var(--muted); margin: 0 0 16px; }
+    .about p strong { color: var(--text); font-weight: 600; }
+    .skills { display: grid; gap: 22px; }
+    .skills h4 { margin: 0 0 10px; font: 500 12px/1 "JetBrains Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+    .skills .chips { margin: 0; }
+    .edu {
+      margin-top: 28px; padding: 22px 24px; border-radius: var(--radius);
+      background: var(--surface); border: 1px solid var(--line);
+      display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .edu b { display: block; }
+    .edu span { color: var(--muted); font-size: 15px; }
+    .gpa { font: 700 28px/1 Inter, sans-serif; color: var(--gold); text-align: right; }
+    .gpa small { display: block; font: 500 12px/1.4 "JetBrains Mono", monospace; color: var(--faint); letter-spacing: .06em; }
+
+    /* Contact */
+    .contact {
+      text-align: center; padding: 64px 32px; border-radius: 24px;
+      background: radial-gradient(600px 300px at 50% 0%, #ff5fa222, transparent 70%), var(--surface);
+      border: 1px solid var(--line);
+    }
+    .contact h2 { font-size: clamp(30px, 4.5vw, 44px); letter-spacing: -0.03em; margin: 12px 0 12px; }
+    .contact p { color: var(--muted); max-width: 520px; margin: 0 auto 28px; }
+    .contact .cta { justify-content: center; }
+    .contact .phone { margin-top: 22px; color: var(--faint); font-size: 15px; }
+    .contact .phone a { text-decoration: none; color: var(--muted); }
+
+    footer { padding: 40px 0 56px; color: var(--faint); font-size: 14px; text-align: center; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .btn, .card { transition: none; }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero { padding: 56px 0 40px; }
+      .hero .wrap { grid-template-columns: 1fr; gap: 32px; }
+      .portrait { width: 160px; height: 160px; order: -1; }
+      .feature-body { grid-template-columns: 1fr; padding: 28px; gap: 32px; }
+      .gallery { padding: 0 28px 28px; }
+      .feature-foot { padding: 20px 28px; }
+      .grid { grid-template-columns: 1fr; }
+      .role { grid-template-columns: 1fr; gap: 10px; }
+      .split { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      body { font-size: 16px; }
+      .wrap { padding: 0 16px; }
+      .nav-links { gap: 16px; }
+      .nav-links li.hide-sm { display: none; }
+      .lede { font-size: 18px; }
+      section { padding: 52px 0; }
+      .feature-body { padding: 22px; }
+      .feature-body h3 { font-size: 28px; }
+      .gallery { grid-template-columns: 1fr; padding: 0 22px 22px; }
+      .feature-foot { padding: 18px 22px; }
+      .badge { bottom: 10px; left: 10px; font-size: 11px; }
+      .contact { padding: 44px 20px; }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <img src="profile.jpg" alt="Harrison Casper">
-        <h1>Harrison Casper</h1>
-        <p>Computer Science Student at Brigham Young University | GPA: 3.91 | Expected Graduation: April 2026</p>
-    </header>
-
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="container">
-        <!-- About Me Section -->
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>I am Harrison Casper, a senior Computer Science major at Brigham Young University with a passion for software development and AI. My skills include Python, Java, C++, MySQL for advanced software development, and web app development with HTML, CSS, JavaScript, React, and AWS. I have years of experience interacting with clients and providing debugging assistance. I thrive in team environments and enjoy tackling challenging projects that involve learning new domains.</p>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-            <h2>Projects</h2>
-            <div class="portfolio-item">
-                <div>
-                    <h3>EduQuest Web App</h3>
-                    <p>A startup web app designed to enhance education in public schools using AI to provide personalized assistance and weekly tasks tailored to students' learning styles, strengths, and weaknesses. I led the overhaul of the DynamoDB database on AWS, switching to many-to-many tables to improve performance, speed, and readability. Also contributed to frontend bug-fixing and prompt engineering for the AI assistant.</p>
-                    <p><a href="https://github.com/eduquest2024/eduquest-backend">GitHub Link</a></p>
-                </div>
-                <img src="project-eduquest.png" alt="EduQuest Project">
-            </div>
-            <div class="portfolio-item">
-                <div>
-                    <h3>Galaxy-Identifying CNN</h3>
-                    <p>Developed an AI-powered Convolutional Neural Network (CNN) from scratch capable of classifying galaxy images. This was a solo project in an astronomy research team where I absorbed domain knowledge, formed relationships with team members, and set personal goals and deadlines to succeed in an unfamiliar field.</p>
-                    <!-- <p><a href="">GitHub Link</a></p> -->
-                </div>
-                <img src="project-cnn.png" alt="Galaxy CNN Project">
-            </div>
-            <div class="portfolio-item">
-                <div>
-                    <h3>ChatGPT RAG for LDS General Conference Talks</h3>
-                    <p>Led the development of a Retrieval-Augmented Generation (RAG) system using ChatGPT, trained on 50 years of LDS general conference talks. Mentored over 200 students in CS 236 Discrete Structures and led weekly lab sessions as part of my Teaching Assistant role.</p>
-                    <p><a href="https://github.com/harrison7/byu-cs-452-class-content/tree/main/rag_spring25">GitHub Link</a></p>
-                </div>
-                <img src="project-rag.jpg" alt="ChatGPT RAG Project">
-            </div>
-            <div class="portfolio-item">
-                <div>
-                    <h3><a href="play.html">JavaScript Game</a></h3>
-                    <p>A interactive JavaScript-based game showcasing dynamic web development skills.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-            <h2>Contact Me</h2>
-            <p>Feel free to reach out to me via email: <a href="mailto:harrisoncasper02@gmail.com">harrisoncasper02@gmail.com</a></p>
-            <p>Connect with me on LinkedIn: <a href="https://www.linkedin.com/in/harrison-casper-a945b32ab/">LinkedIn Profile</a></p>
-            <p>Phone: 360.558.8836</p>
-        </section>
+  <nav class="nav" id="nav">
+    <div class="wrap">
+      <a class="brand" href="#top">Harrison Casper<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li class="hide-sm"><a href="#experience">Experience</a></li>
+        <li class="hide-sm"><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <div class="footer">
-        <p>&copy; 2025 Harrison Casper. All Rights Reserved.</p>
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Open to software engineering roles</span>
+        <h1>I build software that's <span class="grad">fast, clear and fun to use.</span></h1>
+        <p class="lede">I'm a <strong>software engineer</strong> and BYU Computer Science graduate. I've built a GPU-rendered game, machine learning models, retrieval-augmented AI and production web backends on AWS.</p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:harrisoncasper02@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            Email me
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/harrison-casper-a945b32ab/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM10 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg>
+            LinkedIn
+          </a>
+          <a class="btn" href="https://github.com/harrison7" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.3-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.7 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="facts">
+          <span><b>B.S. Computer Science</b> · BYU</span>
+          <span><b>3.91</b> GPA</span>
+          <span>TA for <b>200+</b> students</span>
+        </div>
+      </div>
+      <img class="portrait" src="images/profile.webp" alt="Portrait of Harrison Casper" width="260" height="260">
     </div>
+  </header>
 
+  <main>
+    <!-- Featured: Elementary -->
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Featured project</span>
+          <h2>Elementary</h2>
+          <p>An incremental game about building a star in a glass flask and collecting the periodic table. I'm designing and building it on my own.</p>
+        </div>
+
+        <article class="feature reveal">
+          <div class="feature-shot">
+            <img src="images/elementary-hero.webp" alt="Elementary gameplay: a glowing star inside a glass flask, wired to stacked hydrogen intake capsules, a thermometer, a helium valve and element vials, with an upgrade panel on the right" width="1600" height="1000">
+            <span class="badge">In development · 2026</span>
+          </div>
+
+          <div class="feature-body">
+            <div>
+              <h3>A star in a bottle</h3>
+              <p class="tagline">"Every atom has an origin story."</p>
+              <p>You start with an empty flask on a dark lab bench. Click to puff in hydrogen until it ignites, then keep the star fed, hot and contained as it fuses helium, carbon, oxygen and beyond. Each mechanic is a <strong>real nucleosynthesis process</strong> turned into a toy: the CNO cycle, helium shell burning, cosmic-ray spallation and proton capture.</p>
+              <p>The machine around the flask grows as you progress, and every new element gets its own discovery screen with its real spectral lines. <strong>Three acts are playable so far</strong>, from the first spark of hydrogen through six generations of stars.</p>
+              <ul class="chips">
+                <li>TypeScript</li><li>PixiJS / WebGL</li><li>GLSL shaders</li><li>Svelte 5</li><li>Vite</li><li>GSAP</li><li>Web Audio</li><li>Capacitor</li><li>Node.js</li>
+              </ul>
+            </div>
+            <ul class="highlights">
+              <li><span class="el h">H</span><div><b>Engine-free game architecture</b><span>Game rules are pure TypeScript with no DOM or rendering, so the same code runs the browser game, the phone apps and a Node simulator.</span></div></li>
+              <li><span class="el he">He</span><div><b>Bot-driven balance simulator</b><span>Headless bots play every act at thousands of times real speed and report milestone times against design targets, so balance changes are measured rather than guessed.</span></div></li>
+              <li><span class="el c">C</span><div><b>60 fps on integrated graphics</b><span>SDF shaders, pooled particles and batched geometry keep per-frame JavaScript under 5 ms with about 20 draw calls on Intel UHD graphics. An auto quality setting steps down when frames run slow.</span></div></li>
+              <li><span class="el o">O</span><div><b>One codebase, every screen</b><span>Ships to web, iOS and Android from one build. The UI is touch-first down to a 667×375 landscape phone, with automated screenshot tours on desktop and mobile sizes.</span></div></li>
+              <li><span class="el n">N</span><div><b>Procedural sound</b><span>Every sound effect is synthesized live with the Web Audio API, so the game ships with no audio files.</span></div></li>
+            </ul>
+          </div>
+
+          <div class="gallery">
+            <figure>
+              <img src="images/elementary-hydrogen.webp" alt="Discovery screen for Hydrogen, element 1, showing its atom, emission spectrum and the Sun" loading="lazy" width="1600" height="1000">
+              <figcaption>Each discovery gets its own screen with the atom, its emission spectrum and a real-world reference.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/elementary-oxygen.webp" alt="Discovery screen for Oxygen, element 8, with the Shed the Star prestige panel open" loading="lazy" width="1600" height="1000">
+              <figcaption>Oxygen arrives as the core passes 130 million K. Then the first star sheds its outer layers.</figcaption>
+            </figure>
+          </div>
+
+          <div class="feature-foot">
+            <span>Private preview. I'm happy to share a playable build or walk through the code.</span>
+            <a href="https://github.com/harrison7/startup" target="_blank" rel="noopener">See the 2024 prototype it grew from →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Other projects -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">More work</span>
+          <h2>Selected projects</h2>
+          <p>AI, data and full-stack work from startups, research and coursework.</p>
+        </div>
+        <div class="grid">
+          <article class="card reveal">
+            <div class="card-img"><img src="images/eduquest.webp" alt="EduQuest student dashboard showing a learning profile and weekly quests" loading="lazy"></div>
+            <div class="card-body">
+              <span class="kicker">Startup · Backend</span>
+              <h3>EduQuest</h3>
+              <p>An AI-powered learning platform for public schools that gives each student personalized help and weekly quests based on their learning style, strengths and weaknesses. I led the redesign of the DynamoDB data model to many-to-many tables, which made queries faster and the code easier to read. I also fixed frontend bugs and worked on prompt engineering for the AI assistant.</p>
+              <ul class="chips"><li>AWS</li><li>DynamoDB</li><li>React</li><li>LLMs</li></ul>
+              <a class="card-link" href="https://github.com/eduquest2024/eduquest-backend" target="_blank" rel="noopener">View on GitHub →</a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-img"><img src="images/rag.webp" alt="The LDS General Conference Center during a session" loading="lazy"></div>
+            <div class="card-body">
+              <span class="kicker">AI · Retrieval</span>
+              <h3>General Conference RAG</h3>
+              <p>A retrieval-augmented generation system built on ChatGPT that answers questions from 50 years of LDS General Conference talks. It embeds the talks, finds the passages most relevant to a question and gives the model that context, so its answers are grounded in the actual sources. I led development.</p>
+              <ul class="chips"><li>Python</li><li>OpenAI API</li><li>Sentence Transformers</li><li>Embeddings</li></ul>
+              <a class="card-link" href="https://github.com/harrison7/byu-cs-452-class-content/tree/main/rag_spring25" target="_blank" rel="noopener">View on GitHub →</a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-img contain"><img src="images/cnn.webp" alt="Architecture diagram of the convolutional neural network: four conv blocks followed by fully connected layers" loading="lazy"></div>
+            <div class="card-body">
+              <span class="kicker">Research · Machine learning</span>
+              <h3>Galaxy-Classifying CNN</h3>
+              <p>A convolutional neural network built from scratch to classify galaxy images, as the solo ML contributor on an astronomy research team. It has four convolutional blocks with batch norm and dropout feeding a fully connected head. I learned the astronomy as I went, set my own milestones and delivered in a field that was new to me.</p>
+              <ul class="chips"><li>Python</li><li>PyTorch</li><li>Computer vision</li></ul>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-img code" aria-hidden="true">♕</div>
+            <div class="card-body">
+              <span class="kicker">Full stack · Java</span>
+              <h3>Multiplayer Chess</h3>
+              <p>A client–server chess game with live multiplayer over WebSockets, a REST API over HTTP, MySQL persistence and token-based authentication, plus a command-line client. It's built with a layered architecture and covered by unit tests.</p>
+              <ul class="chips"><li>Java</li><li>WebSocket</li><li>MySQL</li><li>JUnit</li></ul>
+              <a class="card-link" href="https://github.com/harrison7/chess" target="_blank" rel="noopener">View on GitHub →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Experience</span>
+          <h2>Where I've worked</h2>
+        </div>
+        <div class="timeline">
+          <div class="role reveal">
+            <div class="where"><b>EduQuest</b>EdTech startup</div>
+            <div>
+              <h3>Software Engineer</h3>
+              <ul>
+                <li>Led the redesign of the AWS DynamoDB backend to many-to-many tables, which improved performance and made the code easier to read.</li>
+                <li>Fixed frontend bugs and engineered prompts for the student-facing AI assistant.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="role reveal">
+            <div class="where"><b>Brigham Young University</b>Computer Science Dept.</div>
+            <div>
+              <h3>Teaching Assistant, CS 236 Discrete Structures</h3>
+              <ul>
+                <li>Mentored over 200 students and led weekly lab sessions.</li>
+                <li>Helped students debug their code one-on-one and explained hard concepts in plain terms.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="role reveal">
+            <div class="where"><b>BYU Astronomy</b>Research team</div>
+            <div>
+              <h3>Machine Learning Researcher</h3>
+              <ul>
+                <li>Designed and trained a galaxy-image CNN from scratch as the team's only ML contributor.</li>
+                <li>Learned the astronomy as I went and set my own goals and deadlines.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About + skills -->
+    <section id="about">
+      <div class="wrap split">
+        <div class="about reveal">
+          <span class="eyebrow">About</span>
+          <div class="section-head" style="margin-bottom:20px"><h2>A bit about me</h2></div>
+          <p>I like software where getting the details right matters: a game holding 60 fps on a cheap laptop, an AI that cites its sources, a database schema that makes every query simpler.</p>
+          <p>I'm at my best on a team, I enjoy learning a new domain quickly, and years of TA work taught me to <strong>explain technical ideas clearly</strong>. Whether it's astrophysics for a game or astronomy for a research model, I learn the domain first and then build.</p>
+          <div class="edu">
+            <div><b>B.S. Computer Science</b><span>Brigham Young University · 2026</span></div>
+            <div class="gpa">3.91<small>GPA</small></div>
+          </div>
+        </div>
+        <div class="skills reveal">
+          <div>
+            <h4>Languages</h4>
+            <ul class="chips"><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>Java</li><li>C++</li><li>SQL</li><li>HTML / CSS</li></ul>
+          </div>
+          <div>
+            <h4>Frontend &amp; graphics</h4>
+            <ul class="chips"><li>React</li><li>Svelte</li><li>PixiJS</li><li>WebGL / GLSL</li><li>Vite</li></ul>
+          </div>
+          <div>
+            <h4>Backend &amp; cloud</h4>
+            <ul class="chips"><li>Node.js</li><li>AWS</li><li>DynamoDB</li><li>MySQL</li><li>REST</li><li>WebSockets</li></ul>
+          </div>
+          <div>
+            <h4>AI / ML</h4>
+            <ul class="chips"><li>PyTorch</li><li>CNNs</li><li>RAG</li><li>OpenAI API</li><li>Prompt engineering</li></ul>
+          </div>
+          <div>
+            <h4>Practices</h4>
+            <ul class="chips"><li>Git</li><li>Unit testing</li><li>Simulation testing</li><li>Performance profiling</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact reveal">
+          <span class="eyebrow">Contact</span>
+          <h2>Let's build something.</h2>
+          <p>I'm looking for full-time software engineering roles. If you're hiring or want to talk shop, I'd love to hear from you.</p>
+          <div class="cta">
+            <a class="btn primary" href="mailto:harrisoncasper02@gmail.com">harrisoncasper02@gmail.com</a>
+            <a class="btn" href="https://www.linkedin.com/in/harrison-casper-a945b32ab/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://github.com/harrison7" target="_blank" rel="noopener">GitHub</a>
+          </div>
+          <div class="phone"><a href="tel:+13605588836">360.558.8836</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year">2026</span> Harrison Casper</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const items = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        }
+      }, { rootMargin: '0px 0px -8% 0px' });
+      items.forEach((el) => io.observe(el));
+    } else {
+      items.forEach((el) => el.classList.add('in'));
+    }
+  </script>
 </body>
 </html>
