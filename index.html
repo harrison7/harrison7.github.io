@@ -175,6 +175,9 @@
     .card.wide .card-img { flex: 0 0 52%; aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--line); }
     .card.wide .card-img img { object-position: top center; }
     .card-links { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+    .card.compact { grid-column: 1 / -1; }
+    .card.compact p { max-width: 820px; }
+    .card.compact .chips { margin: 0; }
 
     /* Experience */
     .timeline { display: grid; gap: 16px; }
@@ -314,15 +317,15 @@
         </div>
         <div class="timeline">
           <div class="role reveal">
-            <div class="where"><b>Spout Inc.</b>Internship<span class="when">Jun – Aug 2026</span></div>
+            <div class="where"><b>Spout Inc.</b><span class="when">May – Aug 2026</span></div>
             <div>
-              <h3>Software Developer</h3>
+              <h3>Software Developer Intern</h3>
               <ul>
-                <li>Did full-stack development and QA on a Java, Angular and TypeScript application, including tests against Postgres.</li>
-                <li>Built new features, including a mailing address manager and map zoning.</li>
+                <li>Shipped full-stack features across a Java backend and an Angular/TypeScript frontend, including a new API endpoint and its typed client. Fixed backend sorting and status logic.</li>
+                <li>Wrote and updated about 15 Java test files (PostgreSQL integration, service and controller tests) and about 8 Angular spec files.</li>
                 <li>Built a new end-to-end testing system from scratch.</li>
-                <li>Created a mobile app prototype for iOS and Android in NativeScript.</li>
-                <li>Cleaned up and restructured the repository. Used Azure DevOps Boards and Pipelines in the team's workflow.</li>
+                <li>Built new features, including a mailing address manager and map zoning.</li>
+                <li>Prototyped an iOS and Android app in NativeScript, and cleaned up and restructured the code repository.</li>
               </ul>
             </div>
           </div>
@@ -331,18 +334,20 @@
             <div>
               <h3>UX/UI Design Intern</h3>
               <ul>
-                <li>Designed and implemented a dashboard that shows customer and advertising data to internet service providers across the country.</li>
-                <li>Connected API endpoints to React components and styled them with Tailwind CSS.</li>
+                <li>Designed and built a React and Tailwind CSS dashboard that shows customer and advertising data for internet service providers nationwide.</li>
+                <li>Connected API endpoints to React components and styled the interface with Tailwind CSS.</li>
               </ul>
             </div>
           </div>
           <div class="role reveal">
-            <div class="where"><b>Brigham Young University</b>EduQuest<span class="when">Sep – Dec 2025</span></div>
+            <div class="where"><b>EduQuest</b>AI ed-tech startup<span class="when">Sep – Dec 2025</span></div>
             <div>
               <h3>Research Assistant</h3>
               <ul>
-                <li>Co-supervised, with one coworker, the redesign of EduQuest's AWS DynamoDB backend to many-to-many tables, which made queries faster and simplified the data-access code.</li>
-                <li>Fixed frontend bugs and engineered prompts for the student-facing AI assistant.</li>
+                <li>Co-supervised a DynamoDB redesign with one coworker. Rewrote the data models in Python with boto3, replacing embedded lists with ID references and full-table scans with indexed queries.</li>
+                <li>Built a table-cloning utility for isolated test tables, and wrote about 1,100 lines of pytest tests for the quest data layer.</li>
+                <li>Parallelized quest generation with asyncio.</li>
+                <li>Shipped work through the team's Azure DevOps workflow (Boards, Pipelines).</li>
               </ul>
             </div>
           </div>
@@ -351,7 +356,7 @@
             <div>
               <h3>Research Assistant</h3>
               <ul>
-                <li>Designed and trained a galaxy-image CNN from scratch as the team's only ML contributor.</li>
+                <li>Designed and trained a PyTorch CNN from scratch to classify galaxy images, as the team's only ML contributor.</li>
                 <li>Worked independently in a field outside computer science, setting my own milestones.</li>
               </ul>
             </div>
@@ -360,9 +365,9 @@
             <!-- CS 452 TA dates: waiting on Harrison to confirm. -->
             <div class="where"><b>Brigham Young University</b>Computer Science Dept.</div>
             <div>
-              <h3>Teaching Assistant, CS 452 Database Systems</h3>
+              <h3>Teaching Assistant, CS 452 Database Modeling Concepts</h3>
               <ul>
-                <li>Built the General Conference RAG project from scratch, at my professor's request, as starter code for a course assignment.</li>
+                <li>Built the General Conference RAG project from scratch at a professor's request. A course assignment used it as student starter code.</li>
               </ul>
             </div>
           </div>
@@ -372,7 +377,7 @@
             <div>
               <h3>Teaching Assistant, CS 236 Discrete Structures</h3>
               <ul>
-                <li>Supported more than 200 students and led weekly lab sessions.</li>
+                <li>Supported more than 200 students and led weekly labs.</li>
                 <li>Helped students debug their code one-on-one.</li>
               </ul>
             </div>
@@ -396,8 +401,8 @@
               <span class="kicker">Full stack · TypeScript · Live prototype</span>
               <h3>booktrakd</h3>
               <p>A Letterboxd-style social site for books. Readers log, rate and review what they read, keep a diary and reading list, import their Goodreads or StoryGraph history, and follow friends to see what they're reading. It's a solo project, currently a working prototype.</p>
-              <p>Its catalog of about 49,000 books and 800,000 editions is built from Open Library's data dumps by an import pipeline that normalizes titles and authors, merges duplicate works and ranks books by popularity. The site and its fully typed API live in one TypeScript monorepo, and the API is tested against a real Postgres schema running in memory.</p>
-              <ul class="chips"><li>Next.js</li><li>React</li><li>tRPC</li><li>PostgreSQL</li><li>Drizzle ORM</li><li>Tailwind CSS</li><li>Vitest</li></ul>
+              <p>Its catalog of about 49,000 books and 800,000 editions is built from Open Library's data dumps by a Node.js import pipeline and job worker that normalize titles and authors, merge duplicate works and rank books by popularity. The site and its fully typed API live in one TypeScript monorepo. The API is tested with Vitest against a real Postgres schema running in memory, GitHub Actions runs CI, and the prototype is deployed on Vercel with Neon Postgres.</p>
+              <ul class="chips"><li>Next.js</li><li>React</li><li>tRPC</li><li>PostgreSQL</li><li>Drizzle ORM</li><li>Node.js</li><li>Tailwind CSS</li><li>Vitest</li><li>GitHub Actions</li><li>Vercel</li><li>Neon</li></ul>
               <div class="card-links">
                 <a class="card-link" href="https://booktrakd.vercel.app" target="_blank" rel="noopener">Try it live →</a>
                 <a class="card-link" href="https://github.com/harrison7/booktrakd" target="_blank" rel="noopener">View on GitHub →</a>
@@ -408,10 +413,10 @@
           <article class="card reveal">
             <div class="card-img"><img src="images/eduquest.webp" alt="EduQuest student dashboard showing a learning profile and weekly quests" loading="lazy"></div>
             <div class="card-body">
-              <span class="kicker">Startup · Backend</span>
+              <span class="kicker">AI ed-tech startup</span>
               <h3>EduQuest</h3>
-              <p>An AI-powered learning platform for public schools that gives each student personalized help and weekly quests based on their learning style, strengths and weaknesses. As a research assistant, I co-supervised the redesign of the DynamoDB data model to many-to-many tables with one coworker, which made queries faster and the code easier to read. I also fixed frontend bugs and worked on prompt engineering for the AI assistant.</p>
-              <ul class="chips"><li>AWS</li><li>DynamoDB</li><li>React</li><li>LLMs</li></ul>
+              <p>An AI-powered learning platform for public schools that gives each student personalized help and weekly quests based on their learning style, strengths and weaknesses. As a research assistant, I co-supervised a DynamoDB redesign with one coworker and rewrote the data models in Python with boto3, replacing embedded lists with ID references and full-table scans with indexed queries. I also built a table-cloning utility for isolated test tables, wrote about 1,100 lines of pytest tests, and parallelized quest generation with asyncio.</p>
+              <ul class="chips"><li>Python</li><li>boto3</li><li>DynamoDB</li><li>AWS</li><li>pytest</li><li>asyncio</li><li>Azure DevOps</li></ul>
               <a class="card-link" href="https://github.com/eduquest2024/eduquest-backend" target="_blank" rel="noopener">View on GitHub →</a>
             </div>
           </article>
@@ -421,7 +426,7 @@
             <div class="card-body">
               <span class="kicker">AI · Retrieval · Teaching</span>
               <h3>General Conference RAG</h3>
-              <p>A retrieval-augmented generation system built on ChatGPT that answers questions from 50 years of LDS General Conference talks. It embeds the talks, finds the passages most relevant to a question and gives the model that context, so its answers are grounded in the actual sources. I built it from scratch as a TA, at my professor's request, as starter code for a CS 452 (Database Systems) assignment.</p>
+              <p>A retrieval-augmented generation system built on ChatGPT that answers questions from LDS General Conference talks. It scrapes and embeds the talks, finds the passages most relevant to a question and gives the model that context, so its answers are grounded in the actual sources. I built it from scratch as a CS 452 (Database Modeling Concepts) TA at a professor's request, and a course assignment used it as student starter code.</p>
               <ul class="chips"><li>Python</li><li>OpenAI API</li><li>Sentence Transformers</li><li>Embeddings</li></ul>
               <a class="card-link" href="https://github.com/harrison7/byu-cs-452-class-content/tree/main/rag_spring25" target="_blank" rel="noopener">View on GitHub →</a>
             </div>
@@ -447,6 +452,19 @@
               <a class="card-link" href="https://github.com/harrison7/chess" target="_blank" rel="noopener">View on GitHub →</a>
             </div>
           </article>
+
+          <article class="card compact reveal">
+            <div class="card-body">
+              <span class="kicker">DevOps · BYU course project · Sep – Dec 2024</span>
+              <h3>JWT Pizza</h3>
+              <p>A pizza-ordering React app and its Express/MySQL API, from BYU's DevOps course. I wrote Playwright end-to-end tests for checkout, registration, admin and navigation with mocked API routes, and Jest/Supertest tests that brought the API to about 79% coverage. I also added Docker and GitHub Actions CI/CD that deploys to AWS (ECR, ECS, CloudFormation).</p>
+              <ul class="chips"><li>Playwright</li><li>Jest</li><li>Supertest</li><li>Express</li><li>MySQL</li><li>Docker</li><li>GitHub Actions</li><li>AWS</li></ul>
+              <div class="card-links">
+                <a class="card-link" href="https://github.com/harrison7/jwt-pizza" target="_blank" rel="noopener">Frontend on GitHub →</a>
+                <a class="card-link" href="https://github.com/harrison7/jwt-pizza-service" target="_blank" rel="noopener">API on GitHub →</a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -469,7 +487,7 @@
           <div class="feature-body">
             <div>
               <h3>Overview</h3>
-              <p>The player starts with an empty flask, adds hydrogen until it ignites, and then keeps the star fed, hot and contained as it fuses heavier elements. Each mechanic is based on a real nucleosynthesis process. Three acts are playable so far, covering six generations of stars.</p>
+              <p>The player starts with an empty flask, adds hydrogen until it ignites, and then keeps the star fed, hot and contained as it fuses heavier elements. Each mechanic is based on a real nucleosynthesis process. Three acts are playable so far, covering six generations of stars. It grew out of a 2024 BYU course project, a JavaScript and React version with an Express and MongoDB backend, bcrypt cookie authentication and a live WebSocket leaderboard, deployed to AWS.</p>
               <ul class="chips">
                 <li>TypeScript</li><li>PixiJS / WebGL</li><li>GLSL shaders</li><li>Svelte 5</li><li>Vite</li><li>GSAP</li><li>Web Audio</li><li>Capacitor</li><li>Node.js</li>
               </ul>
@@ -497,32 +515,36 @@
           <span class="eyebrow">About</span>
           <div class="section-head" style="margin-bottom:20px"><h2>Background</h2></div>
           <p>Most of my work is in areas where small details decide the result: frame rates on low-end hardware, AI answers grounded in their sources, and data models that keep queries simple.</p>
-          <p>I've interned as a software developer and as a UX/UI designer, worked as a research assistant at BYU, and taught as a TA. I usually learn the domain before building in it, whether that meant astronomy for a research model or nucleosynthesis for a game.</p>
+          <p>I've interned as a software developer and as a UX/UI designer, worked as a research assistant at an AI ed-tech startup and on a BYU astronomy team, and taught as a TA. I usually learn the domain before building in it, whether that meant astronomy for a research model or nucleosynthesis for a game.</p>
           <div class="edu">
-            <div><b>B.S. Computer Science</b><span>Brigham Young University · April 2026</span><span>Coursework in machine learning, database systems and software engineering</span></div>
+            <div><b>B.S. Computer Science</b><span>Brigham Young University · Aug 2020 – Apr 2026</span><span>Coursework: Machine Learning, Database Modeling Concepts, Software Engineering, Discrete Structures, DevOps</span></div>
             <div class="gpa">3.9<small>GPA</small></div>
           </div>
         </div>
         <div class="skills reveal">
           <div>
             <h4>Languages</h4>
-            <ul class="chips"><li>TypeScript</li><li>JavaScript</li><li>Java</li><li>Python</li><li>SQL</li><li>HTML / CSS</li></ul>
+            <ul class="chips"><li>Java</li><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>SQL</li><li>HTML / CSS</li><li>C++ (coursework)</li></ul>
           </div>
           <div>
-            <h4>Frontend &amp; mobile</h4>
-            <ul class="chips"><li>React</li><li>Angular</li><li>Tailwind CSS</li><li>NativeScript</li><li>Svelte</li><li>PixiJS</li><li>WebGL / GLSL</li><li>Vite</li></ul>
+            <h4>Frontend</h4>
+            <ul class="chips"><li>React</li><li>Angular</li><li>Next.js</li><li>Tailwind CSS</li><li>Vite</li><li>NativeScript (iOS/Android)</li><li>Svelte</li><li>PixiJS</li><li>WebGL / GLSL</li></ul>
           </div>
           <div>
-            <h4>Backend, data &amp; cloud</h4>
-            <ul class="chips"><li>PostgreSQL</li><li>MySQL</li><li>DynamoDB</li><li>AWS</li><li>Docker</li><li>REST</li><li>WebSockets</li></ul>
+            <h4>Backend &amp; databases</h4>
+            <ul class="chips"><li>Node.js</li><li>Express</li><li>REST APIs</li><li>tRPC</li><li>WebSockets</li><li>Maven</li><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>DynamoDB</li></ul>
+          </div>
+          <div>
+            <h4>Testing</h4>
+            <ul class="chips"><li>Playwright</li><li>JUnit</li><li>Jest</li><li>Supertest</li><li>Vitest</li><li>pytest</li><li>Angular unit tests</li><li>End-to-end and integration testing</li><li>Simulation testing</li></ul>
+          </div>
+          <div>
+            <h4>DevOps &amp; tools</h4>
+            <ul class="chips"><li>Git / GitHub</li><li>GitHub Actions</li><li>Docker</li><li>AWS (ECR, ECS, CloudFormation, S3)</li><li>Azure DevOps (Boards, Pipelines)</li><li>Vercel</li><li>Performance profiling</li></ul>
           </div>
           <div>
             <h4>AI / ML</h4>
-            <ul class="chips"><li>PyTorch</li><li>CNNs</li><li>RAG</li><li>OpenAI API</li><li>Prompt engineering</li></ul>
-          </div>
-          <div>
-            <h4>Testing &amp; tools</h4>
-            <ul class="chips"><li>Automated end-to-end testing</li><li>Test-driven development</li><li>Unit testing</li><li>Simulation testing</li><li>Git / GitHub</li><li>Azure DevOps (Boards, Pipelines)</li><li>Agentic programming</li><li>Performance profiling</li></ul>
+            <ul class="chips"><li>PyTorch</li><li>CNNs</li><li>RAG</li><li>OpenAI API</li><li>Sentence Transformers</li><li>AI coding agents</li><li>Prompt engineering</li></ul>
           </div>
         </div>
       </div>
