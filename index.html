@@ -164,6 +164,10 @@
     .card .chips li { font-size: 12px; padding: 6px 9px; }
     .card-link { margin-top: 18px; color: var(--sky); text-decoration: none; font-weight: 600; font-size: 15px; }
     .card-link:hover { text-decoration: underline; }
+    .card.wide { grid-column: 1 / -1; flex-direction: row; }
+    .card.wide .card-img { flex: 0 0 52%; aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--line); }
+    .card.wide .card-img img { object-position: top center; }
+    .card-links { display: flex; flex-wrap: wrap; gap: 6px 22px; }
 
     /* Experience */
     .timeline { display: grid; gap: 16px; }
@@ -226,6 +230,8 @@
       .gallery { padding: 0 28px 28px; }
       .feature-foot { padding: 20px 28px; }
       .grid { grid-template-columns: 1fr; }
+      .card.wide { flex-direction: column; }
+      .card.wide .card-img { flex: none; aspect-ratio: 16 / 9; border-right: 0; border-bottom: 1px solid var(--line); }
       .role { grid-template-columns: 1fr; gap: 10px; }
       .split { grid-template-columns: 1fr; }
     }
@@ -349,9 +355,24 @@
         <div class="section-head reveal">
           <span class="eyebrow">More work</span>
           <h2>Selected projects</h2>
-          <p>AI, data and full-stack work from startups, research and coursework.</p>
+          <p>Full-stack, AI and data work from my own projects, startups, research and coursework.</p>
         </div>
         <div class="grid">
+          <article class="card wide reveal">
+            <div class="card-img"><img src="images/booktrakd.webp" alt="booktrakd home page: a dark cover collage behind the headline &quot;Track books you've read. Save those you want to read. Tell your friends what's good.&quot;, above a grid of popular book covers" loading="lazy" width="1600" height="900"></div>
+            <div class="card-body">
+              <span class="kicker">Full stack · TypeScript · Live prototype</span>
+              <h3>booktrakd</h3>
+              <p>A Letterboxd-style social site for books. Readers log, rate and review what they read, keep a diary and reading list, import their Goodreads or StoryGraph history, and follow friends to see what they're reading. I'm designing and building it on my own.</p>
+              <p>Its catalog of about 49,000 books and 800,000 editions is built from Open Library's data dumps by an import pipeline that normalizes titles and authors, merges duplicate works and ranks books by popularity. The site and its fully typed API live in one TypeScript monorepo, and the API is tested against a real Postgres schema running in memory.</p>
+              <ul class="chips"><li>Next.js</li><li>React</li><li>tRPC</li><li>PostgreSQL</li><li>Drizzle ORM</li><li>Tailwind CSS</li><li>Vitest</li></ul>
+              <div class="card-links">
+                <a class="card-link" href="https://booktrakd.vercel.app" target="_blank" rel="noopener">Try it live →</a>
+                <a class="card-link" href="https://github.com/harrison7/booktrakd" target="_blank" rel="noopener">View on GitHub →</a>
+              </div>
+            </div>
+          </article>
+
           <article class="card reveal">
             <div class="card-img"><img src="images/eduquest.webp" alt="EduQuest student dashboard showing a learning profile and weekly quests" loading="lazy"></div>
             <div class="card-body">
