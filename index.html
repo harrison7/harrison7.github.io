@@ -191,6 +191,7 @@
     .role h3 { margin: 0 0 8px; font-size: 18px; }
     .role ul { margin: 0; padding-left: 18px; color: var(--muted); }
     .role li { margin-bottom: 6px; }
+    .role li b { color: var(--text); font-weight: 600; }
 
     /* Skills + about */
     .split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: start; }
@@ -323,7 +324,7 @@
               <ul>
                 <li>Shipped full-stack features across a Java backend and an Angular/TypeScript frontend, including a new API endpoint and its typed client. Fixed backend sorting and status logic.</li>
                 <li>Wrote and updated about 15 Java test files (PostgreSQL integration, service and controller tests) and about 8 Angular spec files.</li>
-                <li>Built a new end-to-end testing system from scratch.</li>
+                <li>Built a new end-to-end testing system from scratch with Playwright.</li>
                 <li>Built new features, including a mailing address manager and map zoning.</li>
                 <li>Prototyped an iOS and Android app in NativeScript, and cleaned up and restructured the code repository.</li>
               </ul>
@@ -340,6 +341,17 @@
             </div>
           </div>
           <div class="role reveal">
+            <div class="where"><b>Brigham Young University</b>Computer Science Dept.<span class="when">Winter 2024 – Winter 2026</span></div>
+            <div>
+              <h3>Teaching Assistant</h3>
+              <ul>
+                <li><b>CS 393 Collaborative Problem Solving</b> (Fall 2025, Winter 2026).</li>
+                <li><b>CS 452 Database Modeling Concepts</b> (Spring 2025): built the General Conference RAG project from scratch at a professor's request. A course assignment used it as student starter code.</li>
+                <li><b>CS 236 Discrete Structures</b> (Winter 2024, Fall 2024, Winter 2025, Summer 2025): supported more than 200 students, led weekly labs and helped students debug their code one-on-one.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="role reveal">
             <div class="where"><b>EduQuest</b>AI ed-tech startup<span class="when">Sep – Dec 2025</span></div>
             <div>
               <h3>Research Assistant</h3>
@@ -347,6 +359,7 @@
                 <li>Co-supervised a DynamoDB redesign with one coworker. Rewrote the data models in Python with boto3, replacing embedded lists with ID references and full-table scans with indexed queries.</li>
                 <li>Built a table-cloning utility for isolated test tables, and wrote about 1,100 lines of pytest tests for the quest data layer.</li>
                 <li>Parallelized quest generation with asyncio.</li>
+                <li>Fixed frontend bugs and adjusted the AI assistant's prompts.</li>
                 <li>Shipped work through the team's Azure DevOps workflow (Boards, Pipelines).</li>
               </ul>
             </div>
@@ -358,27 +371,6 @@
               <ul>
                 <li>Designed and trained a PyTorch CNN from scratch to classify galaxy images, as the team's only ML contributor.</li>
                 <li>Worked independently in a field outside computer science, setting my own milestones.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="role reveal">
-            <!-- CS 452 TA dates: waiting on Harrison to confirm. -->
-            <div class="where"><b>Brigham Young University</b>Computer Science Dept.</div>
-            <div>
-              <h3>Teaching Assistant, CS 452 Database Modeling Concepts</h3>
-              <ul>
-                <li>Built the General Conference RAG project from scratch at a professor's request. A course assignment used it as student starter code.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="role reveal">
-            <!-- CS 236 TA dates: waiting on Harrison to confirm. -->
-            <div class="where"><b>Brigham Young University</b>Computer Science Dept.</div>
-            <div>
-              <h3>Teaching Assistant, CS 236 Discrete Structures</h3>
-              <ul>
-                <li>Supported more than 200 students and led weekly labs.</li>
-                <li>Helped students debug their code one-on-one.</li>
               </ul>
             </div>
           </div>
@@ -415,7 +407,7 @@
             <div class="card-body">
               <span class="kicker">AI ed-tech startup</span>
               <h3>EduQuest</h3>
-              <p>An AI-powered learning platform for public schools that gives each student personalized help and weekly quests based on their learning style, strengths and weaknesses. As a research assistant, I co-supervised a DynamoDB redesign with one coworker and rewrote the data models in Python with boto3, replacing embedded lists with ID references and full-table scans with indexed queries. I also built a table-cloning utility for isolated test tables, wrote about 1,100 lines of pytest tests, and parallelized quest generation with asyncio.</p>
+              <p>An AI-powered learning platform for public schools that gives each student personalized help and weekly quests based on their learning style, strengths and weaknesses. As a research assistant, I co-supervised a DynamoDB redesign with one coworker and rewrote the data models in Python with boto3, replacing embedded lists with ID references and full-table scans with indexed queries. I also built a table-cloning utility for isolated test tables, wrote about 1,100 lines of pytest tests, parallelized quest generation with asyncio, fixed frontend bugs and adjusted the AI assistant's prompts.</p>
               <ul class="chips"><li>Python</li><li>boto3</li><li>DynamoDB</li><li>AWS</li><li>pytest</li><li>asyncio</li><li>Azure DevOps</li></ul>
               <a class="card-link" href="https://github.com/eduquest2024/eduquest-backend" target="_blank" rel="noopener">View on GitHub →</a>
             </div>
@@ -528,7 +520,7 @@
           </div>
           <div>
             <h4>Frontend</h4>
-            <ul class="chips"><li>React</li><li>Angular</li><li>Next.js</li><li>Tailwind CSS</li><li>Vite</li><li>NativeScript (iOS/Android)</li><li>Svelte</li><li>PixiJS</li><li>WebGL / GLSL</li></ul>
+            <ul class="chips"><li>React</li><li>Angular</li><li>Next.js</li><li>Tailwind CSS</li><li>Vite</li><li>NativeScript (iOS/Android)</li><li>Svelte</li></ul>
           </div>
           <div>
             <h4>Backend &amp; databases</h4>
@@ -536,11 +528,11 @@
           </div>
           <div>
             <h4>Testing</h4>
-            <ul class="chips"><li>Playwright</li><li>JUnit</li><li>Jest</li><li>Supertest</li><li>Vitest</li><li>pytest</li><li>Angular unit tests</li><li>End-to-end and integration testing</li><li>Simulation testing</li></ul>
+            <ul class="chips"><li>Playwright</li><li>JUnit</li><li>Jest</li><li>Supertest</li><li>Vitest</li><li>pytest</li><li>Angular unit tests</li><li>End-to-end and integration testing</li></ul>
           </div>
           <div>
             <h4>DevOps &amp; tools</h4>
-            <ul class="chips"><li>Git / GitHub</li><li>GitHub Actions</li><li>Docker</li><li>AWS (ECR, ECS, CloudFormation, S3)</li><li>Azure DevOps (Boards, Pipelines)</li><li>Vercel</li><li>Performance profiling</li></ul>
+            <ul class="chips"><li>Git / GitHub</li><li>GitHub Actions</li><li>Docker</li><li>AWS (ECR, ECS, CloudFormation, S3)</li><li>Azure DevOps (Boards, Pipelines)</li><li>Vercel</li></ul>
           </div>
           <div>
             <h4>AI / ML</h4>
