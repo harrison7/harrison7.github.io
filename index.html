@@ -169,6 +169,7 @@
     .card-body { padding: 26px; display: flex; flex-direction: column; flex: 1; }
     .card .kicker { font: 500 12px/1 "JetBrains Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
     .card h3 { font-size: 22px; letter-spacing: -0.02em; margin: 10px 0 10px; }
+    .card .when { display: block; margin: -4px 0 12px; font: 500 13px/1.4 "JetBrains Mono", monospace; color: var(--faint); }
     .card p { color: var(--muted); font-size: 16px; margin: 0 0 16px; }
     .card .chips { margin: auto 0 0; }
     .card .chips li { font-size: 12px; padding: 6px 9px; }
@@ -376,7 +377,7 @@
               <h3>Research Assistant</h3>
               <ul>
                 <li>Designed and trained a PyTorch CNN from scratch to classify galaxy images, as the team's only ML contributor.</li>
-                <li>Worked independently in a field outside computer science, setting my own milestones.</li>
+                <li>Built it as a solo project with no prior astronomy background, learning the field by asking the professor and other students.</li>
               </ul>
             </div>
           </div>
@@ -398,6 +399,7 @@
             <div class="card-body">
               <span class="kicker">Full stack · TypeScript · Live prototype</span>
               <h3>booktrakd</h3>
+              <span class="when">Jan 2026 – Present</span>
               <p>A Letterboxd-style social site for books. Readers log, rate and review what they read, keep a diary and reading list, import their Goodreads or StoryGraph history, and follow friends to see what they're reading. It's a solo project, currently a working prototype.</p>
               <p>Its catalog of about 49,000 books and 800,000 editions is built from Open Library's data dumps by a Node.js import pipeline and job worker that normalize titles and authors, merge duplicate works and rank books by popularity. The site and its fully typed API live in one TypeScript monorepo. The API is tested with Vitest against a real Postgres schema running in memory, GitHub Actions runs CI, and the prototype is deployed on Vercel with Neon Postgres.</p>
               <ul class="chips"><li>Next.js</li><li>React</li><li>tRPC</li><li>PostgreSQL</li><li>Drizzle ORM</li><li>Node.js</li><li>Tailwind CSS</li><li>Vitest</li><li>GitHub Actions</li><li>Vercel</li><li>Neon</li></ul>
@@ -424,6 +426,7 @@
             <div class="card-body">
               <span class="kicker">AI · Retrieval · Teaching</span>
               <h3>General Conference RAG</h3>
+              <span class="when">May – Jun 2025</span>
               <p>A retrieval-augmented generation system built on ChatGPT that answers questions from LDS General Conference talks. It scrapes and embeds the talks, finds the passages most relevant to a question and gives the model that context, so its answers are grounded in the actual sources. I built it from scratch as a CS 452 (Database Modeling Concepts) TA at a professor's request, and a course assignment used it as student starter code.</p>
               <ul class="chips"><li>Python</li><li>OpenAI API</li><li>Sentence Transformers</li><li>Embeddings</li></ul>
               <a class="card-link" href="https://github.com/harrison7/byu-cs-452-class-content/tree/main/rag_spring25" target="_blank" rel="noopener">View on GitHub →</a>
@@ -453,8 +456,9 @@
 
           <article class="card compact reveal">
             <div class="card-body">
-              <span class="kicker">DevOps · BYU course project · Sep – Dec 2024</span>
+              <span class="kicker">DevOps · BYU course project</span>
               <h3>JWT Pizza</h3>
+              <span class="when">Sep – Dec 2024</span>
               <p>A pizza-ordering React app and its Express/MySQL API, from BYU's DevOps course. I wrote Playwright end-to-end tests for checkout, registration, admin and navigation with mocked API routes, and Jest/Supertest tests that brought the API to about 79% coverage. I also added Docker and GitHub Actions CI/CD that deploys to AWS (ECR, ECS, CloudFormation).</p>
               <ul class="chips"><li>Playwright</li><li>Jest</li><li>Supertest</li><li>Express</li><li>MySQL</li><li>Docker</li><li>GitHub Actions</li><li>AWS</li></ul>
               <div class="card-links">
