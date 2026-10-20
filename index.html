@@ -127,6 +127,9 @@
     .feature-body { padding: 40px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; }
     .feature-body h3 { font-size: 34px; letter-spacing: -0.03em; margin: 0 0 6px; }
     .tagline { color: var(--peach); font-style: italic; margin: 0 0 18px; }
+    .feature-body h3.sub { font-size: 24px; margin-top: 32px; }
+    .feature-body .when-line { font: 500 13px/1.4 "JetBrains Mono", monospace; color: var(--faint); margin: 0 0 12px; }
+    .highlights-label { margin: 0 0 16px; font: 500 12px/1 "JetBrains Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
     .feature-body p { color: var(--muted); margin: 0 0 16px; }
     .feature-body p strong { color: var(--text); font-weight: 600; }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; padding: 0; list-style: none; }
@@ -467,34 +470,40 @@
         <div class="section-head reveal">
           <span class="eyebrow">Game project</span>
           <h2>Elementary</h2>
-          <p>An incremental game about building a star in a glass flask and collecting the periodic table. A solo project in TypeScript and WebGL.</p>
+          <p>An incremental game about building a star in a glass flask and collecting the periodic table. I first wrote it for a BYU course in 2024, and I'm now rebuilding it with AI assistance.</p>
         </div>
 
         <article class="feature reveal">
           <div class="feature-shot">
             <img src="images/elementary-hero.webp" alt="Elementary gameplay: a glowing star inside a glass flask, wired to stacked hydrogen intake capsules, a thermometer, a helium valve and element vials, with an upgrade panel on the right" width="1600" height="1000">
-            <span class="badge">In development · 2026</span>
+            <span class="badge">AI-assisted rebuild · In development</span>
           </div>
 
           <div class="feature-body">
             <div>
-              <h3>Overview</h3>
-              <p>The player starts with an empty flask, adds hydrogen until it ignites, and then keeps the star fed, hot and contained as it fuses heavier elements. Each mechanic is based on a real nucleosynthesis process. Three acts are playable so far, covering six generations of stars. It grew out of a 2024 BYU course project, a JavaScript and React version with an Express and MongoDB backend, bcrypt cookie authentication and a live WebSocket leaderboard, deployed to AWS.</p>
+              <h3>2026 rebuild</h3>
+              <p class="when-line">Oct 2026 – present</p>
+              <p>An AI-assisted rebuild I designed and directed. Every commit is co-authored with Claude, and I co-wrote the design docs. The player starts with an empty flask, adds hydrogen until it ignites, and then keeps the star fed, hot and contained as it fuses heavier elements. Each mechanic is based on a real nucleosynthesis process. Three acts are playable so far, covering six generations of stars.</p>
               <ul class="chips">
                 <li>TypeScript</li><li>PixiJS / WebGL</li><li>GLSL shaders</li><li>Svelte 5</li><li>Vite</li><li>GSAP</li><li>Web Audio</li><li>Capacitor</li><li>Node.js</li>
               </ul>
+              <h3 class="sub">2024 version</h3>
+              <p class="when-line">BYU CS 260 · Jan – Apr 2024</p>
+              <p>I wrote this version myself in JavaScript and React, with an Express backend, WebSockets, MongoDB for user accounts and bcrypt cookie authentication, deployed on AWS EC2. I wrote the element-fusion and upgrade mechanics and the element guide. The leaderboard came from the course's Simon template.</p>
             </div>
-            <ul class="highlights">
-              <li><span class="el h">H</span><div><b>Engine-free game architecture</b><span>Game rules are pure TypeScript with no DOM or rendering, so the same code runs the browser game, the phone apps and a Node simulator.</span></div></li>
-              <li><span class="el he">He</span><div><b>Bot-driven balance simulator</b><span>Headless bots play every act at thousands of times real speed and report milestone times against design targets, so the effect of each balance change is measured.</span></div></li>
-              <li><span class="el c">C</span><div><b>60 fps on integrated graphics</b><span>SDF shaders, pooled particles and batched geometry keep per-frame JavaScript under 5 ms with about 20 draw calls on Intel UHD graphics. An auto quality setting steps down when frames run slow.</span></div></li>
-              <li><span class="el o">O</span><div><b>Web, iOS and Android from one codebase</b><span>The UI is touch-first down to a 667×375 landscape phone, and automated screenshot tours cover desktop and mobile sizes.</span></div></li>
-            </ul>
+            <div>
+              <h4 class="highlights-label">Features of the AI-assisted rebuild</h4>
+              <ul class="highlights">
+                <li><span class="el h">H</span><div><b>Engine-free game architecture</b><span>Game rules are pure TypeScript with no DOM or rendering, so the same code runs the browser game and a Node simulator.</span></div></li>
+                <li><span class="el he">He</span><div><b>Bot-driven balance simulator</b><span>Headless bots play every act at thousands of times real speed and report milestone times against design targets, so the effect of each balance change is measured.</span></div></li>
+                <li><span class="el c">C</span><div><b>60 fps on integrated graphics</b><span>SDF shaders, pooled particles and batched geometry keep per-frame JavaScript under 5 ms with about 20 draw calls on Intel UHD graphics. An auto quality setting steps down when frames run slow.</span></div></li>
+              </ul>
+            </div>
           </div>
 
           <div class="feature-foot">
-            <span>Not yet public. A playable build is available on request.</span>
-            <a href="https://github.com/harrison7/startup" target="_blank" rel="noopener">2024 prototype on GitHub →</a>
+            <span>Not yet public. A playable web build is available on request. A mobile store release is planned, but the mobile build hasn't been run yet.</span>
+            <a href="https://github.com/harrison7/startup" target="_blank" rel="noopener">2024 version on GitHub →</a>
           </div>
         </article>
       </div>
@@ -506,7 +515,7 @@
         <div class="about reveal">
           <span class="eyebrow">About</span>
           <div class="section-head" style="margin-bottom:20px"><h2>Background</h2></div>
-          <p>Most of my work is in areas where small details decide the result: frame rates on low-end hardware, AI answers grounded in their sources, and data models that keep queries simple.</p>
+          <p>Most of my work is in areas where small details decide the result: AI answers grounded in their sources and data models that keep queries simple.</p>
           <p>I've interned as a software developer and as a UX/UI designer, worked as a research assistant at an AI ed-tech startup and on a BYU astronomy team, and taught as a TA. I usually learn the domain before building in it, whether that meant astronomy for a research model or nucleosynthesis for a game.</p>
           <div class="edu">
             <div><b>B.S. Computer Science</b><span>Brigham Young University · Aug 2020 – Apr 2026</span><span>Coursework: Machine Learning, Database Modeling Concepts, Software Engineering, Discrete Structures, DevOps</span></div>
