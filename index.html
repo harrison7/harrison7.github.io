@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Harrison Casper · Software Engineer</title>
-  <meta name="description" content="Harrison Casper is a software engineer and BYU Computer Science graduate building games, web apps and machine learning systems.">
+  <meta name="description" content="Harrison Casper is a software engineer and BYU Computer Science graduate working on web applications, games and machine learning.">
   <meta property="og:title" content="Harrison Casper · Software Engineer">
-  <meta property="og:description" content="Games, web apps and machine learning. Currently building Elementary, a star-in-a-flask incremental game in TypeScript and PixiJS.">
+  <meta property="og:description" content="Software engineer and BYU Computer Science graduate. Web applications, games and machine learning.">
   <meta property="og:image" content="https://harrison7.github.io/images/elementary-hero.webp">
   <meta property="og:url" content="https://harrison7.github.io/">
   <meta name="theme-color" content="#0b1022">
@@ -268,9 +268,9 @@
   <header class="hero" id="top">
     <div class="wrap">
       <div>
-        <span class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Open to software engineering roles</span>
-        <h1>I build software that's <span class="grad">fast, clear and fun to use.</span></h1>
-        <p class="lede">I'm a <strong>software engineer</strong> and BYU Computer Science graduate. I've built a GPU-rendered game, machine learning models, retrieval-augmented AI and production web backends on AWS.</p>
+        <span class="eyebrow">Software engineer</span>
+        <h1>Harrison Casper</h1>
+        <p class="lede">I have a B.S. in Computer Science from BYU and work across <strong>web applications, games and machine learning</strong>, from production backends on AWS to WebGL rendering and retrieval-augmented AI.</p>
         <div class="cta">
           <a class="btn primary" href="mailto:harrisoncasper02@gmail.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
@@ -288,7 +288,7 @@
         <div class="facts">
           <span><b>B.S. Computer Science</b> · BYU</span>
           <span><b>3.91</b> GPA</span>
-          <span>Now building <a href="#work" style="color:var(--text);font-weight:600">Elementary</a></span>
+          <span>Currently working on <a href="#work" style="color:var(--text);font-weight:600">booktrakd</a> and <a href="#elementary" style="color:var(--text);font-weight:600">Elementary</a></span>
         </div>
       </div>
       <img class="portrait" src="images/profile.webp" alt="Portrait of Harrison Casper" width="260" height="260">
@@ -296,66 +296,13 @@
   </header>
 
   <main>
-    <!-- Featured: Elementary -->
+    <!-- Projects -->
     <section id="work">
       <div class="wrap">
         <div class="section-head reveal">
-          <span class="eyebrow">Featured project</span>
-          <h2>Elementary</h2>
-          <p>An incremental game about building a star in a glass flask and collecting the periodic table. I'm designing and building it on my own.</p>
-        </div>
-
-        <article class="feature reveal">
-          <div class="feature-shot">
-            <img src="images/elementary-hero.webp" alt="Elementary gameplay: a glowing star inside a glass flask, wired to stacked hydrogen intake capsules, a thermometer, a helium valve and element vials, with an upgrade panel on the right" width="1600" height="1000">
-            <span class="badge">In development · 2026</span>
-          </div>
-
-          <div class="feature-body">
-            <div>
-              <h3>A star in a bottle</h3>
-              <p class="tagline">"Every atom has an origin story."</p>
-              <p>You start with an empty flask on a dark lab bench. Click to puff in hydrogen until it ignites, then keep the star fed, hot and contained as it fuses helium, carbon, oxygen and beyond. Each mechanic is a <strong>real nucleosynthesis process</strong> turned into a toy: the CNO cycle, helium shell burning, cosmic-ray spallation and proton capture.</p>
-              <p>The machine around the flask grows as you progress, and every new element gets its own discovery screen with its real spectral lines. <strong>Three acts are playable so far</strong>, from the first spark of hydrogen through six generations of stars.</p>
-              <ul class="chips">
-                <li>TypeScript</li><li>PixiJS / WebGL</li><li>GLSL shaders</li><li>Svelte 5</li><li>Vite</li><li>GSAP</li><li>Web Audio</li><li>Capacitor</li><li>Node.js</li>
-              </ul>
-            </div>
-            <ul class="highlights">
-              <li><span class="el h">H</span><div><b>Engine-free game architecture</b><span>Game rules are pure TypeScript with no DOM or rendering, so the same code runs the browser game, the phone apps and a Node simulator.</span></div></li>
-              <li><span class="el he">He</span><div><b>Bot-driven balance simulator</b><span>Headless bots play every act at thousands of times real speed and report milestone times against design targets, so balance changes are measured rather than guessed.</span></div></li>
-              <li><span class="el c">C</span><div><b>60 fps on integrated graphics</b><span>SDF shaders, pooled particles and batched geometry keep per-frame JavaScript under 5 ms with about 20 draw calls on Intel UHD graphics. An auto quality setting steps down when frames run slow.</span></div></li>
-              <li><span class="el o">O</span><div><b>One codebase, every screen</b><span>Ships to web, iOS and Android from one build. The UI is touch-first down to a 667×375 landscape phone, with automated screenshot tours on desktop and mobile sizes.</span></div></li>
-              <li><span class="el n">N</span><div><b>Procedural sound</b><span>Every sound effect is synthesized live with the Web Audio API, so the game ships with no audio files.</span></div></li>
-            </ul>
-          </div>
-
-          <div class="gallery">
-            <figure>
-              <img src="images/elementary-hydrogen.webp" alt="Discovery screen for Hydrogen, element 1, showing its atom, emission spectrum and the Sun" loading="lazy" width="1600" height="1000">
-              <figcaption>Each discovery gets its own screen with the atom, its emission spectrum and a real-world reference.</figcaption>
-            </figure>
-            <figure>
-              <img src="images/elementary-oxygen.webp" alt="Discovery screen for Oxygen, element 8, with the Shed the Star prestige panel open" loading="lazy" width="1600" height="1000">
-              <figcaption>Oxygen arrives as the core passes 130 million K. Then the first star sheds its outer layers.</figcaption>
-            </figure>
-          </div>
-
-          <div class="feature-foot">
-            <span>Private preview. I'm happy to share a playable build or walk through the code.</span>
-            <a href="https://github.com/harrison7/startup" target="_blank" rel="noopener">See the 2024 prototype it grew from →</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Other projects -->
-    <section id="projects">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">More work</span>
+          <span class="eyebrow">Projects</span>
           <h2>Selected projects</h2>
-          <p>Full-stack, AI and data work from my own projects, startups, research and coursework.</p>
+          <p>Full-stack, AI and data work from personal projects, a startup, research and coursework.</p>
         </div>
         <div class="grid">
           <article class="card wide reveal">
@@ -363,7 +310,7 @@
             <div class="card-body">
               <span class="kicker">Full stack · TypeScript · Live prototype</span>
               <h3>booktrakd</h3>
-              <p>A Letterboxd-style social site for books. Readers log, rate and review what they read, keep a diary and reading list, import their Goodreads or StoryGraph history, and follow friends to see what they're reading. I'm designing and building it on my own.</p>
+              <p>A Letterboxd-style social site for books. Readers log, rate and review what they read, keep a diary and reading list, import their Goodreads or StoryGraph history, and follow friends to see what they're reading. It's a solo project, currently a working prototype.</p>
               <p>Its catalog of about 49,000 books and 800,000 editions is built from Open Library's data dumps by an import pipeline that normalizes titles and authors, merges duplicate works and ranks books by popularity. The site and its fully typed API live in one TypeScript monorepo, and the API is tested against a real Postgres schema running in memory.</p>
               <ul class="chips"><li>Next.js</li><li>React</li><li>tRPC</li><li>PostgreSQL</li><li>Drizzle ORM</li><li>Tailwind CSS</li><li>Vitest</li></ul>
               <div class="card-links">
@@ -400,7 +347,7 @@
             <div class="card-body">
               <span class="kicker">Research · Machine learning</span>
               <h3>Galaxy-Classifying CNN</h3>
-              <p>A convolutional neural network built from scratch to classify galaxy images, as the solo ML contributor on an astronomy research team. It has four convolutional blocks with batch norm and dropout feeding a fully connected head. I learned the astronomy as I went, set my own milestones and delivered in a field that was new to me.</p>
+              <p>A convolutional neural network built from scratch to classify galaxy images, as the solo ML contributor on an astronomy research team. It has four convolutional blocks with batch norm and dropout feeding a fully connected head.</p>
               <ul class="chips"><li>Python</li><li>PyTorch</li><li>Computer vision</li></ul>
             </div>
           </article>
@@ -419,6 +366,58 @@
       </div>
     </section>
 
+    <!-- Game project: Elementary -->
+    <section id="elementary">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Game project</span>
+          <h2>Elementary</h2>
+          <p>An incremental game about building a star in a glass flask and collecting the periodic table. A solo project in TypeScript and WebGL.</p>
+        </div>
+
+        <article class="feature reveal">
+          <div class="feature-shot">
+            <img src="images/elementary-hero.webp" alt="Elementary gameplay: a glowing star inside a glass flask, wired to stacked hydrogen intake capsules, a thermometer, a helium valve and element vials, with an upgrade panel on the right" width="1600" height="1000">
+            <span class="badge">In development · 2026</span>
+          </div>
+
+          <div class="feature-body">
+            <div>
+              <h3>Overview</h3>
+              <p>The player starts with an empty flask, adds hydrogen until it ignites, and then keeps the star fed, hot and contained as it fuses heavier elements. Each mechanic is based on a real nucleosynthesis process: the CNO cycle, helium shell burning, cosmic-ray spallation and proton capture.</p>
+              <p>The machinery around the flask expands as the game progresses, and each new element has a discovery screen showing its real spectral lines. Three acts are playable so far, covering six generations of stars.</p>
+              <ul class="chips">
+                <li>TypeScript</li><li>PixiJS / WebGL</li><li>GLSL shaders</li><li>Svelte 5</li><li>Vite</li><li>GSAP</li><li>Web Audio</li><li>Capacitor</li><li>Node.js</li>
+              </ul>
+            </div>
+            <ul class="highlights">
+              <li><span class="el h">H</span><div><b>Engine-free game architecture</b><span>Game rules are pure TypeScript with no DOM or rendering, so the same code runs the browser game, the phone apps and a Node simulator.</span></div></li>
+              <li><span class="el he">He</span><div><b>Bot-driven balance simulator</b><span>Headless bots play every act at thousands of times real speed and report milestone times against design targets, so the effect of each balance change is measured.</span></div></li>
+              <li><span class="el c">C</span><div><b>60 fps on integrated graphics</b><span>SDF shaders, pooled particles and batched geometry keep per-frame JavaScript under 5 ms with about 20 draw calls on Intel UHD graphics. An auto quality setting steps down when frames run slow.</span></div></li>
+              <li><span class="el o">O</span><div><b>Web, iOS and Android from one codebase</b><span>The UI is touch-first down to a 667×375 landscape phone, and automated screenshot tours cover desktop and mobile sizes.</span></div></li>
+              <li><span class="el n">N</span><div><b>Procedural sound</b><span>Every sound effect is synthesized live with the Web Audio API, so the game ships with no audio files.</span></div></li>
+            </ul>
+          </div>
+
+          <div class="gallery">
+            <figure>
+              <img src="images/elementary-hydrogen.webp" alt="Discovery screen for Hydrogen, element 1, showing its atom, emission spectrum and the Sun" loading="lazy" width="1600" height="1000">
+              <figcaption>Each discovery gets its own screen with the atom, its emission spectrum and a real-world reference.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/elementary-oxygen.webp" alt="Discovery screen for Oxygen, element 8, with the Shed the Star prestige panel open" loading="lazy" width="1600" height="1000">
+              <figcaption>Oxygen arrives as the core passes 130 million K. Then the first star sheds its outer layers.</figcaption>
+            </figure>
+          </div>
+
+          <div class="feature-foot">
+            <span>Not yet public. A playable build is available on request.</span>
+            <a href="https://github.com/harrison7/startup" target="_blank" rel="noopener">2024 prototype on GitHub →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <!-- Experience -->
     <section id="experience">
       <div class="wrap">
@@ -432,7 +431,7 @@
             <div>
               <h3>Software Engineer</h3>
               <ul>
-                <li>Led the redesign of the AWS DynamoDB backend to many-to-many tables, which improved performance and made the code easier to read.</li>
+                <li>Led the redesign of the AWS DynamoDB backend to many-to-many tables, which made queries faster and simplified the data-access code.</li>
                 <li>Fixed frontend bugs and engineered prompts for the student-facing AI assistant.</li>
               </ul>
             </div>
@@ -442,8 +441,8 @@
             <div>
               <h3>Teaching Assistant, CS 236 Discrete Structures</h3>
               <ul>
-                <li>Mentored over 200 students and led weekly lab sessions.</li>
-                <li>Helped students debug their code one-on-one and explained hard concepts in plain terms.</li>
+                <li>Supported more than 200 students and led weekly lab sessions.</li>
+                <li>Helped students debug their code one-on-one.</li>
               </ul>
             </div>
           </div>
@@ -453,7 +452,7 @@
               <h3>Machine Learning Researcher</h3>
               <ul>
                 <li>Designed and trained a galaxy-image CNN from scratch as the team's only ML contributor.</li>
-                <li>Learned the astronomy as I went and set my own goals and deadlines.</li>
+                <li>Worked independently in a field outside computer science, setting my own milestones.</li>
               </ul>
             </div>
           </div>
@@ -466,9 +465,9 @@
       <div class="wrap split">
         <div class="about reveal">
           <span class="eyebrow">About</span>
-          <div class="section-head" style="margin-bottom:20px"><h2>A bit about me</h2></div>
-          <p>I like software where getting the details right matters: a game holding 60 fps on a cheap laptop, an AI that cites its sources, a database schema that makes every query simpler.</p>
-          <p>I'm at my best on a team, I enjoy learning a new domain quickly, and years of TA work taught me to <strong>explain technical ideas clearly</strong>. Whether it's astrophysics for a game or astronomy for a research model, I learn the domain first and then build.</p>
+          <div class="section-head" style="margin-bottom:20px"><h2>Background</h2></div>
+          <p>Most of my work is in areas where small details decide the result: frame rates on low-end hardware, AI answers grounded in their sources, and data models that keep queries simple.</p>
+          <p>I've worked on a startup engineering team and a university research team, and taught as a TA. I usually learn the domain before building in it, whether that meant astronomy for a research model or nucleosynthesis for a game.</p>
           <div class="edu">
             <div><b>B.S. Computer Science</b><span>Brigham Young University · 2026</span></div>
             <div class="gpa">3.91<small>GPA</small></div>
@@ -504,8 +503,8 @@
       <div class="wrap">
         <div class="contact reveal">
           <span class="eyebrow">Contact</span>
-          <h2>Let's build something.</h2>
-          <p>I'm looking for full-time software engineering roles. If you're hiring or want to talk shop, I'd love to hear from you.</p>
+          <h2>Get in touch</h2>
+          <p>I'm open to full-time software engineering roles. Email is the best way to reach me.</p>
           <div class="cta">
             <a class="btn primary" href="mailto:harrisoncasper02@gmail.com">harrisoncasper02@gmail.com</a>
             <a class="btn" href="https://www.linkedin.com/in/harrison-casper-a945b32ab/" target="_blank" rel="noopener">LinkedIn</a>
