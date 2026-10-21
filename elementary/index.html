@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elementary</title>
+  <meta name="description" content="An incremental game about building a star in a glass flask: fuse elements, unlock upgrades, and fill the periodic table.">
+  <meta property="og:title" content="Elementary">
+  <meta property="og:description" content="An incremental game about building a star in a glass flask: fuse elements, unlock upgrades, and fill the periodic table.">
+  <meta property="og:url" content="https://harrison7.github.io/elementary/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://harrison7.github.io/elementary/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Elementary">
+  <meta name="twitter:description" content="An incremental game about building a star in a glass flask: fuse elements, unlock upgrades, and fill the periodic table.">
+  <meta name="twitter:image" content="https://harrison7.github.io/elementary/og.png">
+  <meta name="theme-color" content="#0b1022">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff5fa2'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-weight='700' font-size='30' text-anchor='middle' fill='%230b1022'%3EHC%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1022;
+      --surface: #121a35;
+      --line: #243056;
+      --text: #e8ecf8;
+      --muted: #9aa5c4;
+      --faint: #8a94b8;
+      --pink: #ff5fa2;
+      --peach: #ffc49b;
+      --gold: #ffcc4d;
+      --sky: #6cc6ff;
+      --radius: 16px;
+      --max: 1120px;
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(900px 600px at 85% -10%, #1d2a5a 0%, transparent 60%),
+        radial-gradient(700px 500px at -10% 30%, #1a1f48 0%, transparent 60%),
+        var(--bg);
+      color: var(--text);
+      font: 400 17px/1.65 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    .skip-link {
+      position: absolute; left: 16px; top: -100px; z-index: 100;
+      padding: 10px 16px; border-radius: 8px; background: var(--pink); color: #1a0b14;
+      font-weight: 600; text-decoration: none;
+    }
+    .skip-link:focus { top: 12px; }
+    :focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 4px; }
+    .btn:focus-visible { border-radius: 999px; }
+    main:focus { outline: none; }
+
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11, 16, 34, 0.78);
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+    .nav.scrolled { border-bottom-color: var(--line); }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-weight: 700; text-decoration: none; letter-spacing: -0.01em; }
+    .brand span { color: var(--pink); }
+    .nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; transition: color .15s; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--text); }
+
+    .eyebrow {
+      font: 500 13px/1 "JetBrains Mono", ui-monospace, monospace;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--pink);
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    h1 { font-size: clamp(40px, 6vw, 68px); line-height: 1.05; letter-spacing: -0.035em; margin: 18px 0 20px; font-weight: 800; }
+    .lede { font-size: 20px; color: var(--muted); max-width: 640px; margin: 0 0 20px; }
+    .lede strong { color: var(--text); font-weight: 600; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;
+      text-decoration: none; border: 1px solid var(--line); background: var(--surface);
+      transition: transform .15s, border-color .15s, background .15s;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: #3a4a80; }
+    .btn.primary { background: var(--pink); color: #1a0b14; border-color: var(--pink); }
+    .btn.primary:hover { background: #ff7bb4; }
+    .btn.play { padding: 16px 28px; font-size: 17px; }
+
+    .page { padding: 72px 0 96px; }
+    .page-inner { max-width: 760px; }
+    .hero-card {
+      margin: 8px 0 32px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: #0d1430;
+    }
+    .hero-card img { width: 100%; aspect-ratio: 1200 / 630; object-fit: cover; }
+    .blurb { color: var(--muted); margin: 0 0 16px; max-width: 640px; }
+    .blurb strong { color: var(--text); font-weight: 600; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 28px; padding: 0; list-style: none; }
+    .chips li {
+      font: 500 13px/1 "JetBrains Mono", monospace; padding: 7px 11px; border-radius: 8px;
+      background: #1b2550; color: #c9d3f2; border: 1px solid #2a3768;
+    }
+
+    footer { padding: 40px 0 56px; color: var(--faint); font-size: 14px; text-align: center; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
+    }
+    @media (max-width: 640px) {
+      body { font-size: 16px; }
+      .wrap { padding: 0 16px; }
+      .nav-links { gap: 16px; }
+      .nav-links li.hide-sm { display: none; }
+      .lede { font-size: 18px; }
+      .page { padding: 48px 0 72px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="nav" id="nav" aria-label="Main">
+    <div class="wrap">
+      <a class="brand" href="../">Harrison Casper<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="../#experience">Experience</a></li>
+        <li><a href="../#work">Projects</a></li>
+        <li class="hide-sm"><a href="../#about">About</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" tabindex="-1">
+    <section class="page">
+      <div class="wrap page-inner">
+        <span class="eyebrow">Incremental game</span>
+        <h1>Elementary</h1>
+        <figure class="hero-card">
+          <img src="og.png" alt="Elementary title card: a flask on a stand beside the game name and the elements H, He, C, O, and Na" width="1200" height="630">
+        </figure>
+        <p class="lede">An incremental game about building a star in a glass flask: fuse elements, unlock upgrades, and fill the periodic table.</p>
+        <p class="blurb">The 2026 version is a <strong>TypeScript / Svelte 5 / PixiJS</strong> (WebGL shaders) game for the web, with iOS and Android planned through Capacitor — mobile is not released yet. Harrison designed and directed it, working with Claude as a coding agent.</p>
+        <p class="blurb">The original 2024 version was a solo project for BYU CS 260, built with React, Express, WebSockets, MongoDB, and AWS.</p>
+        <ul class="chips" aria-label="Stack">
+          <li>TypeScript</li>
+          <li>Svelte 5</li>
+          <li>PixiJS / WebGL</li>
+          <li>Capacitor</li>
+        </ul>
+        <div class="cta">
+          <a class="btn primary play" href="https://elementary.harrisoncasper02.workers.dev/">Play Elementary</a>
+          <a class="btn" href="../#elementary">Back to portfolio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year">2026</span> Harrison Casper</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  </script>
+</body>
+</html>
